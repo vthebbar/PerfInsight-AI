@@ -53,37 +53,37 @@ Modify only the following lines depending on your target requirements:
 ### =========================================================================
 ### AI Engine Configuration Settings
 ### =========================================================================
-### MODIFY THIS: Change to "OpenAI", "Local Ollama", or "Custom OpenAI-Compatible" if not using Gemini
+#### MODIFY THIS: Change to "OpenAI", "Local Ollama", or "Custom OpenAI-Compatible" if not using Gemini
 AI_PROVIDER=Google Gemini
-### MODIFY THIS: Change to match your target model (e.g., gpt-4o-mini, qwen2.5-coder)
+#### MODIFY THIS: Change to match your target model (e.g., gpt-4o-mini, qwen2.5-coder)
 AI_MODEL=gemini-2.5-flash
 
-### API Credentials (Fill in your active keys below; leave unused ones blank)
-### MODIFY THIS: Paste your secret Gemini API token here if using Google Gemini
+#### API Credentials (Fill in your active keys below; leave unused ones blank)
+#### MODIFY THIS: Paste your secret Gemini API token here if using Google Gemini
 GEMINI_API_KEY=your_actual_gemini_api_key_here
-###  MODIFY THIS: Paste your secret OpenAI API token here if using OpenAI
+####  MODIFY THIS: Paste your secret OpenAI API token here if using OpenAI
 OPENAI_API_KEY=
 
-### MODIFY THIS: Change only if your local Ollama port or custom endpoint differs
+#### MODIFY THIS: Change only if your local Ollama port or custom endpoint differs
 CUSTOM_BASE_URL=http://localhost:11434/v1
 
-### =========================================================================
-### JMeter Orchestration & Infrastructure Paths
-### =========================================================================
-### MODIFY THIS: Change to "Distributed (Master-Worker)" if running multi-node tests
+#### =============================================================
+#### JMeter Orchestration & Infrastructure Paths
+#### =============================================================
+#### MODIFY THIS: Change to "Distributed (Master-Worker)" if running multi-node tests
 JMETER_MODE=Standalone (Local)
 ### MODIFY THIS: Add comma-separated IPs if running distributed (e.g., 192.168.1.50, 192.168.1.51)
 WORKER_IPS=
 
-### =========================================================================
-### Performance Service Level Agreements (SLAs)
-### =========================================================================
-### MODIFY THESE: Update your baseline numeric target boundaries here if needed
+#### ==============================================================
+#### Performance Service Level Agreements (SLAs)
+#### ==============================================================
+#### MODIFY THESE: Update your baseline numeric target boundaries here if needed
 SLA_AVG_RESP=2000
 SLA_ERROR_PERC=5.0
 SLA_MAX_RESP=5000
 
-### =========================================================================
+#### ===============================================================
 
 
 ### ⚙️ Step 3: Provide Your JMeter Script
@@ -133,8 +133,11 @@ Configure the Dashboard UI: Inside the PerfInsight AI web sidebar panel, switch 
 
 Input Node IPs: In the text field that appears, input the comma-separated IP addresses or hostnames of your active workers (e.g., 192.168.1.50, 192.168.1.51). Click Save Settings to .env and run the test.
 
-📂 Workspace Output Directory Layout
+📂 Workspace Output Directory Layout:
+
 Upon executing the pipeline, the project structure isolates outputs cleanly inside a managed workspace layout. Here is where your generated reports reside:
+
+```text
 
 PERF_INSIGHT_AI/
 ├── start_windows.bat          # Clickable trigger file for Windows
@@ -148,5 +151,6 @@ PERF_INSIGHT_AI/
         └── index.html         
         #Double-click this file to open visual charts in your browser
 
+''''
 
 Open reports/jmeter_html_report/index.html locally in any web browser to see response time distributions and transaction graphs, then open reports/ai_performance_report.txt to read your dense, objective engineering assessment summary.
