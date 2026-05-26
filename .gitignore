@@ -1,0 +1,12 @@
+# Secrets & Environment Local Configurations
+.env
+
+# Python compilation files
+__pycache__/
+*.pyc
+
+# Raw Performance Test Metrics & AI Output logs
+reports/
+
+# Ignore the automatically generated portable python runtime environment
+python_runtime/
