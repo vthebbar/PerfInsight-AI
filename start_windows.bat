@@ -5,6 +5,14 @@ title Launching PerfInsight AI Portable...
 echo [1/3] Verifying isolated local Python runtime...
 set "WIN_PYTHON_DIR=%~dp0python_runtime\win64"
 
+:: Automatically handle the env file cloning if the user missed Step 2
+if not exist "%~dp0env" (
+    if exist "%~dp0env.example" (
+        echo Copying env.example template to live env configuration...
+        copy "%~dp0env.example" "%~dp0env" >nul
+    )
+)
+
 :: Download embedded python package automatically if not present in the bundle
 if not exist "%WIN_PYTHON_DIR%\python.exe" (
     echo Local runtime not found. Bootstrapping minimal Windows build...

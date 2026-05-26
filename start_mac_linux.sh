@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 echo "=================================================="
-echo "🚀 Initializing PerfInsight AI Portable Instance"
+echo " Initializing PerfInsight AI Portable Instance"
 echo "=================================================="
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
@@ -26,7 +26,7 @@ fi
 
 echo "[2/3] Verifying runtime dependencies..."
 "$VENV_DIR/bin/pip" install --upgrade pip --quiet
-"$$VENV_DIR/bin/pip" install -r "$SCRIPT_DIR/requirements.txt" --quiet
+"$VENV_DIR/bin/pip" install -r "$SCRIPT_DIR/requirements.txt" --quiet
 
 echo "[3/3] Booting Streamlit Engine UI..."
 "$VENV_DIR/bin/streamlit" run "$SCRIPT_DIR/app.py"
