@@ -8,7 +8,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 # --- CONFIGURATION & STORAGE HANDLERS ---
-ENV_FILE = ".env"
+ENV_FILE = "env"
 
 def load_stored_config():
     """Loads configuration parameters from the local .env file safely."""

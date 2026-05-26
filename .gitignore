@@ -1,5 +1,6 @@
 # Secrets & Environment Local Configurations
-.env
+# This blocks your active 'env' file but allows 'env.example' to be pushed
+env
 
 # Python compilation files
 __pycache__/

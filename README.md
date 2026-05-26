@@ -38,15 +38,11 @@ Choose **one** of the following two options to bring the project onto your local
    git clone [url_of_this_repository]
    
    
-### ⚙️ Step 2: Prepare Your Configurations
-1. Navigate into the root project directory: cd PERF_INSIGHT_AI
+### ⚙️ Step 2: Prepare Your Workspace Configurations
 
-1. Configure the .env Parameters
-Find the file named .env.example in the project's root folder.
-
-Rename that file to exactly .env (completely remove the .example extension).
-
-Open this new .env file using any text editor (like Notepad, TextEdit, or VS Code).
+1. Find the visible template file named **`env.example`** in the project's root folder.
+2. Rename that file to exactly **`env`** (simply remove the `.example` extension).
+3. Open this `env` file using any standard text editor (like Notepad, TextEdit, or VS Code).
 
 Modify only the following lines depending on your target requirements:
 
