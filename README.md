@@ -151,6 +151,6 @@ PERF_INSIGHT_AI/
         └── index.html         
         #Double-click this file to open visual charts in your browser
 
-'''text
+```
 
 Open reports/jmeter_html_report/index.html locally in any web browser to see response time distributions and transaction graphs, then open reports/ai_performance_report.txt to read your dense, objective engineering assessment summary.
