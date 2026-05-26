@@ -1,6 +1,8 @@
-# PerfInsight AI — Performance Test Analyzer
+#  PerfInsight AI — Autonomous Performance Engineering Agent
 
-PerfInsight AI is an automated performance engineering pipeline built with **Streamlit** and **Python**. It simplifies the load-testing lifecycle by orchestrating **Apache JMeter** tests (both local and distributed multi-node architectures), verifying custom performance SLA thresholds, and generating dense engineering analysis summaries using Local or Cloud AI engines.
+PerfInsight AI is an intelligent, autonomous performance testing agent built with **Streamlit** and **Python**. It orchestrates **Apache JMeter** load-testing runs, monitors system behavior against strict SLA thresholds, and acts as an on-demand virtual performance engineer to analyze telemetry logs and generating engineering analysis summaries using Local or Cloud AI engines.
+
+It is an automated performance engineering pipeline built with **Streamlit** and **Python**. It simplifies the load-testing lifecycle by orchestrating **Apache JMeter** tests (both local and distributed multi-node architectures).
 
 ---
 
