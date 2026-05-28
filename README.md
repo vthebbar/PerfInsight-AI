@@ -87,6 +87,15 @@ You do not need to modify inside this file directly, It can done through UI as w
 | OpenRouter | Custom OpenAI-Compatible | e.g., meta-llama/llama-3.3-70b | Your OpenRouter Key | https://openrouter.ai/api/v1 |
 
 #### =======================================
+For Anthropic Claude (The Non-Standard Exception):
+
+Set AI_PROVIDER=Anthropic
+
+Leave AI_MODEL, AI_API_KEY, and CUSTOM_BASE_URL completely blank.
+
+Fill in the bottom block: ANTHROPIC_MODEL=claude-opus-4.7 (or claude-sonnet-4.6) and provide your ANTHROPIC_API_KEY.
+
+#### =======================================
 
 Once the setup completes, choose one of the execution methods below to interact with the pipeline:
 
