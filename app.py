@@ -431,8 +431,9 @@ def render_web_ui():
     
     st.set_page_config(page_title="PerfInsight AI", layout="wide")
     st.title("PerfInsight AI — Performance Test Analyzer")
-    st.caption("Execute JMeter tests, validate SLA rules, and generate engineering summaries using Local or Cloud AI Models")
+    st.subheader("Execute JMeter tests, validate SLA rules, and generate engineering summaries using Local or Cloud AI Models")
 
+    st.caption("An open-source AI initiative built with 💙 for performance engineers by **Vishwanatha Hebbar** • View on [GitHub](https://github.com/vthebbar/PerfInsight-AI)")
     st.sidebar.header("🛠️ Configuration Settings")
     st.sidebar.subheader("🤖 AI Engine Setup")
     
