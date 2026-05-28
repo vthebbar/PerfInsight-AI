@@ -33,89 +33,74 @@ Choose **one** of the following two options to bring the project onto your local
 
 #### Option B: Clone via Git Terminal
 1. Create a folder ( e.g your_folder_name)
-2.  Open your terminal or command prompt
+2. Open your terminal or command prompt
 3. Navigate to to folder in command line ( cd your_folder_name)
-4. Run the following command to clone the repository:
+4. Run the one of the following command to clone the repository:
 
-   git clone [url_of_this_repository]
-   
-   
-### ⚙️ Step 2: Prepare Your Workspace Configurations
-
-1. Find the visible template file named **`env.example`** in the project's root folder.
-2. Rename that file to exactly **`env`** (simply remove the `.example` extension).
-3. Open this `env` file using any standard text editor (like Notepad, TextEdit, or VS Code).
-
-Modify only the following lines depending on your target requirements:
-
-### =================================
-### AI Engine Configuration Settings
-### ==================================
-MODIFY THIS: Change to "OpenAI", "Local Ollama", or "Custom OpenAI-Compatible" if not using Gemini
-AI_PROVIDER=Google Gemini
-MODIFY THIS: Change to match your target model (e.g., gpt-4o-mini, qwen2.5-coder)
-AI_MODEL=gemini-2.5-flash
-
-#### API Credentials (Fill in your active keys below; leave unused ones blank)
-MODIFY THIS: Paste your secret Gemini API token here if using Google Gemini
-GEMINI_API_KEY=your_actual_gemini_api_key_here
-MODIFY THIS: Paste your secret OpenAI API token here if using OpenAI
-OPENAI_API_KEY=
-
-MODIFY THIS: Change only if your local Ollama port or custom endpoint differs
-CUSTOM_BASE_URL=http://localhost:11434/v1
-
-#### ============================================
-#### JMeter Orchestration & Infrastructure Paths
-#### ===========================================
-MODIFY THIS: Change to "Distributed (Master-Worker)" if running multi-node tests
-JMETER_MODE=Standalone (Local)
-MODIFY THIS: Add comma-separated IPs if running distributed (e.g., 192.168.1.50, 192.168.1.51)
-WORKER_IPS=
-
-#### ==========================================
-#### Performance Service Level Agreements (SLAs)
-#### ===========================================
-MODIFY THESE: Update your baseline numeric target boundaries here if needed
-SLA_AVG_RESP=2000
-SLA_ERROR_PERC=5.0
-SLA_MAX_RESP=5000
-
-#### =======================================
+   HTTPS:   git clone https://github.com/vthebbar/PerfInsight-AI.git
+   or
+   SSH :    git clone git@github.com:vthebbar/PerfInsight-AI.git
 
 
-### ⚙️ Step 3: Provide Your JMeter Script
+### ⚙️ Step 2: Provide Your JMeter Script
 
 Take your target JMeter script file (your .jmx file) that you intend to test.
 
 Copy and paste it right into this project's root directory.
 
-Rename the file to exactly Test_plan.jmx so the application targets it automatically out-of-the-box.
+Rename the file to exactly **Test_plan.jmx** so the application targets it automatically.
 
 
-### Step 4: Launching the Application Engine
+### Step 3: Launching the Application Engine
 Run the launcher script corresponding to your operating system sitting inside the project root directory. You do not need to manually install anything.
 
 🪟 On Windows: Double-click the  **start_windows.bat** file.
 
-🍏 On macOS / Linux: Open your terminal inside this directory and execute:
+🍏 On macOS / Linux: Open your terminal inside this project root directory and execute below command:
     
   **chmod +x start_mac_linux.sh && ./start_mac_linux.sh**
+   
 
-⚙️ What happens automatically: The terminal script safely provisions a sandboxed local copy of Python, builds an isolated virtual workspace (venv/), resolves all code package dependencies cleanly, and launches the app engine without modifying your global system settings.
+   ⚙️ What happens automatically: The terminal script safely provisions a sandboxed local copy of Python, builds an isolated virtual workspace (venv/), resolves all code package dependencies cleanly, and launches the app engine without modifying your global system settings.
 
+
+### ⚙️ Step 4: Prepare Your Workspace Configurations
+
+1. Find the visible template file named **`env.example`** in the project's root folder.
+2. Rename that file to exactly **`env`** (simply remove the `.example` extension).
+3. Open this `env` file using any standard text editor (like Notepad, TextEdit, or VS Code).
+
+Modify the values as below, depending on AI model you use: 
+You do not need to modify inside this file directly, It can done through UI as well once application is launched.
+
+### =================================
+### AI Engine Configuration Settings (Modify through UI or directly in env file)
+### ==================================
+
+| Provider Choice/KEY | AI_PROVIDER | AI_MODEL | AI_API_KEY | CUSTOM_BASE_URL |
+|---|---|---|---|---|
+| Google Gemini | Google Gemini | gemini-2.5-flash or gemini-2.5-pro | Your Gemini API Key | Leave Blank |
+| OpenAI | OpenAI | gpt-4o-mini or gpt-4o | Your OpenAI API Key | Leave Blank |
+| Local Ollama | Local Ollama | qwen2.5-coder:7b or llama3 | Leave Blank | http://localhost:11434/v1 |
+| xAI Grok | Custom OpenAI-Compatible | grok-4.3 | Your Grok API Key | https://api.x.ai/v1 |
+| DeepSeek | Custom OpenAI-Compatible | deepseek-reasoner or deepseek-chat | Your DeepSeek API Key | https://api.deepseek.com/v1 |
+| OpenRouter | Custom OpenAI-Compatible | e.g., meta-llama/llama-3.3-70b | Your OpenRouter Key | https://openrouter.ai/api/v1 |
+
+#### =======================================
 
 Once the setup completes, choose one of the execution methods below to interact with the pipeline:
 
 ### Method 1: Interactive Web Dashboard (Standard)
 By default, the launcher automatically fires open a visual interface in your default web browser at:
 👉 http://localhost:8501
-Inside this visual layout, you can adjust configuration inputs on-the-fly, drag SLA toggle bars, save modifications, and watch the automated pipeline execute in real time.
+Inside this visual layout, you can adjust configuration inputs on-the-fly, drag SLA toggle bars, save modifications, Click on button **Run Full Performance Pipeline** and watch the automated pipeline execute in real time.
 
 ### Method 2: Headless CLI Execution (CI/CD / Terminal Automation)
-If you want to execute your pre-configured pipeline completely from your command line without launching a visual browser engine page (e.g., inside an automated Jenkins/GitHub Actions pipeline), run the following command within your activated environment:
+If you want to execute your pre-configured pipeline completely from your command line or within an automated pipeline (e.g., Jenkins, GitHub Actions, or a cron job) without spinning up a web server, run this command within your activated environment:
+  **python app.py**
 
- streamlit run app.py --server.headless true
+**Note:** This mode bypasses the Streamlit web server entirely. It reads your latest parameters straight from the local env configuration file, runs the JMeter execution, validates SLAs, saves the AI performance report to disk, and terminates cleanly upon completion.
+
 
  ### 🧬 Distributed Architecture Setup (Optional)
 If your test scales beyond a single runner and requires a Distributed (Master-Worker) multi-node load configuration:
@@ -132,7 +117,7 @@ Configure the Dashboard UI: Inside the PerfInsight AI web sidebar panel, switch 
 
 Input Node IPs: In the text field that appears, input the comma-separated IP addresses or hostnames of your active workers (e.g., 192.168.1.50, 192.168.1.51). Click Save Settings to .env and run the test.
 
-📂 Workspace Output Directory Layout:
+**📂 Workspace Output Directory Layout:**
 
 Upon executing the pipeline, the project structure isolates outputs cleanly inside a managed workspace layout. Here is where your generated reports reside:
 
