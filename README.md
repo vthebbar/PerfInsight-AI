@@ -153,3 +153,9 @@ PERF_INSIGHT_AI/
 ```
 
 Open reports/jmeter_html_report/index.html locally in any web browser to see response time distributions and transaction graphs, then open reports/ai_performance_report.txt to read your dense, objective engineering assessment summary.
+
+
+---
+<p align="center">
+  <small>🤖 <i>An AI initiative by Vishwanatha Hebbar</i></small>
+</p>
